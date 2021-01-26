@@ -13,7 +13,7 @@ const Photo = React.createClass({
                     </Link>
 
                     <CSSTransitionGroup transitionName="like"
-                    transitionEventTimeout={500}
+                    transitionEnterTimeout={500}
                     transitionLeaveTimeout={500}>
                     <span key={post.likes} className="likes-heart">{post.likes}</span>
                     </CSSTransitionGroup>
@@ -22,7 +22,7 @@ const Photo = React.createClass({
                 <figcaption>
                     <p>{post.caption}</p>
                     <div className="control-buttons">
-                        <button className="likes">
+                        <button onClick={this.props.increment.bind(null,i)} className="likes">
                             &hearts; {post.likes}
                         </button>
                         <Link className="button" to={`/view/${post.code}`}>
@@ -38,4 +38,4 @@ const Photo = React.createClass({
     }
 });
 
-export default Photo
+export default Photo;
